@@ -1,9 +1,23 @@
 import React, { useState } from 'react'
 import HomeoImg from "../assets/homeo.jpg"
+import { useNavigate } from "react-router-dom"
+
 
 const Login = () => {
+    const navigate = useNavigate()
     const [isLogin, setIsLogin] = useState(true)
+    const [value, setValue] = useState({
+        email: "",
+        password: "",
+        username: ""
+    })
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        navigate("/patientDetails")
+    }
     return (
+
         <div className='flex min-h-screen bg-slate-50 font-sans'>
 
             {/* Left Image Section - Standard Professional Layout */}
@@ -33,6 +47,8 @@ const Login = () => {
                                 <input
                                     type="text"
                                     placeholder='John Doe'
+                                    value={value.username}
+                                    onChange={(e) => setValue({ ...value, username: e.target.value })}
                                     className='w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400'
                                     required
                                 />
@@ -42,6 +58,8 @@ const Login = () => {
                             <label className="text-sm font-medium text-slate-700">Email address</label>
                             <input
                                 type="email"
+                                value={value.email}
+                                onChange={(e) => setValue({ ...value, email: e.target.value })}
                                 placeholder='email@example.com'
                                 className='w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400'
                                 required
@@ -56,6 +74,8 @@ const Login = () => {
                             <input
                                 type="password"
                                 placeholder='••••••••'
+                                value={value.password}
+                                onChange={(e) => setValue({ ...value, password: e.target.value })}
                                 className='w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400'
                                 required
                             />
@@ -68,6 +88,7 @@ const Login = () => {
 
                         <button
                             type='submit'
+                            onClick={handleSubmit}
                             className='w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-sm'
                         >
                             {isLogin ? "Sign in" : "Sign up"}
