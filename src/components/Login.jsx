@@ -14,7 +14,7 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        navigate("/patientDetails")
+        navigate("/")
     }
     return (
 
@@ -69,7 +69,7 @@ const Login = () => {
                         <div className="flex flex-col gap-1.5">
                             <div className="flex justify-between items-center">
                                 <label className="text-sm font-medium text-slate-700">Password</label>
-                                <button type="button" className="text-sm font-semibold text-blue-600 hover:text-blue-700">Forgot password?</button>
+                                <button type="button" className="text-sm font-semibold text-green-600 hover:text-green-700">Forgot password?</button>
                             </div>
                             <input
                                 type="password"
@@ -89,7 +89,7 @@ const Login = () => {
                         <button
                             type='submit'
                             onClick={handleSubmit}
-                            className='w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-sm'
+                            className='w-full py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-sm'
                         >
                             {isLogin ? "Sign in" : "Sign up"}
                         </button>
@@ -100,7 +100,7 @@ const Login = () => {
                             <button
                                 type="button"
                                 onClick={() => setIsLogin(false)}
-                                className="font-semibold text-blue-600 hover:text-blue-700"
+                                className="font-semibold text-green-600 hover:text-green-700"
                             >
                                 Register
                             </button>
@@ -111,7 +111,7 @@ const Login = () => {
                             <button
                                 type="button"
                                 onClick={() => setIsLogin(true)}
-                                className="font-semibold text-blue-600 hover:text-blue-700"
+                                className="font-semibold text-green-600 hover:text-green-700"
                             >
                                 Login
                             </button>
